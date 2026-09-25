@@ -1,0 +1,36 @@
+/* ====================================================================
+   Estilos propios del sitio (no tocar style-starter.css del template).
+   Cárgalo SIEMPRE después de style-starter.css en el <head>.
+   ==================================================================== */
+
+/*
+ * Cinta roja decorativa en la esquina superior derecha de cualquier
+ * imagen que tenga la clase "corner-ribbon". Se dibuja con CSS puro
+ * (un triángulo hecho con bordes), así que aparece automáticamente en
+ * CUALQUIER imagen que subas desde el panel admin, sin que tengas que
+ * diseñarla a mano cada vez.
+ */
+.corner-ribbon {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.corner-ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 46px 46px 0;
+    border-color: transparent #c0392b transparent transparent;
+    z-index: 2;
+    pointer-events: none; /* para que no bloquee el clic sobre la imagen */
+}
+
+/* Versión más chica, para tarjetas pequeñas (podcast, especiales) */
+.corner-ribbon.corner-ribbon-sm::after {
+    border-width: 0 30px 30px 0;
+}
